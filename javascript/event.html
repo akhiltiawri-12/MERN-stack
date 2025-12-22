@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grandparent{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .parent{
+
+        
+         width: 300px;
+            height: 300px;
+            background-color: rgb(17, 255, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="grandparent">grandparent</div>
+    <div class="parent">parent</div>
+    <div class="child">child</div>
+    <script>
+        const grandparent = document.querySelector(".grandparent")
+    </script>
+</body>
+</html>

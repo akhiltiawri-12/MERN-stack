@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+</head>
+<body>
+
+        <button id="red">red</button>
+        <button id="green">green</button>
+
+        <script>
+            const red= (Document.getElementById ("red") .onclick = handelClick("red"));
+            const green =(document.getElementById ("green") .onclick =handeClick ("green"));
+
+            function handelClick(color){
+                return function () {
+                    document.body.style.backgroundColor = color;
+                };
+            }
+            handelClick;
+            
+        </script>
+    </div>
+</body>
+</html>
