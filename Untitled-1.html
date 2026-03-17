@@ -1,0 +1,46 @@
+<div className="container">
+ <div className="form-wrapper">
+ <form onSubmit={formik.handleSubmit}>
+ <div>
+ <input
+name="name"
+type="text"
+placeholder="Enter name"
+onChange={formik.handleChange}
+value={formik.values.name}
+onBlur={formik.handleBlur}
+/>
+ {formik.touched.name && formik.errors.name && (
+<div className="error">{formik.errors.name}</div>
+ )}
+ </div>
+ <div>
+ <input
+type="email"
+name="email"
+placeholder="Enter email"
+onChange={formik.handleChange}
+value={formik.values.email}
+onBlur={formik.handleBlur}
+/>
+ {formik.touched.email && formik.errors.email && (
+<div className="error">{formik.errors.email}</div>
+ )}
+ </div>
+ <div>
+ <input
+type="password"
+name="password"
+placeholder="Enter password"
+onChange={formik.handleChange}
+value={formik.values.password}
+onBlur={formik.handleBlur}
+/>
+ {formik.touched.password && formik.errors.password && (
+<div className="error">{formik.errors.password}</div>
+ )}
+ </div>
+ <button type="submit">Submit</button>
+ </form>
+ </div>
+ </div>

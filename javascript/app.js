@@ -1,60 +1,43 @@
-//  obj = {
-//     name : "akhil" ,
-//     age : 25,
-// };
-// console.log(obj["age"]);
-// console.log(Object.entries(obj))
-// l
-// let obj ={
-//     name :  "akhil",
-//     age: 25,
-//     address: noida ,
+// var value = 20
+// value = 50
+//  console.log(value)
+//  value = "akhil";
+// {
+//     var value = 100
 // }
-// console.log
-// function sum (...args){
-//     let sum =0;
-//     for (let i=0 ;i<args.length; i++){
-//         sum=sum+args[i]
-//     }
-//     return sum;984
+// console.log(value)
+
+// let a = 10
+// let b = 20
+// console.log(a)
+// console.log(a+b)
+// const a= 10
+// a=20
+// console.log(a)
+// data types
+//  
+
+// let a =10
+// let b = a 
+// b = 20
+// console.log(b)
+// console.log(a)
+
+// let obj = {
+//     name : "akhil"
 // }
-// console.log (sum(46546,5665,891,25,))
-// var value = 20;
-// value =50
-// var value = akhil
-// console.log(value);
+// obj2 = obj
+// obj2.name = "tiwari"
+// console.log(obj2)
+// console.log(obj)/
 
-// let a = 10;
-// let b =20;
-// let name = akhil;
-// let isloggedIn=true ;
+// let arr = [ 10, 20, 30];
+// let arr2 = new array (10, 20, 30,);
 
-// let obj= {
-//     name :"akhil",
+// function test() {}
+// test();
 
+// let greet = function() {
+//     console.log ("hello world");
 // }
-// let obj2=obj;
-// obj.name=kuamr;
-// console.log(obj2);
-// console.log(obj);
-
-// let arr =[ 1,3,3,3,3];
-// let arr2 = new array [23,3,2];
-// console.log
-
-// let greet = ()=> console.log(hello world);
-
-// 
-// let =19
-// if ( age > 18){
-//     console.log("eligiblefor voting");
-    
-// }
-// else if ( age==18){
-//     console.log("just eigible")
-// }
-// else{
-//     console.log ("not eligible for vote");
-// }
-
-
+// let greet = () => console.log ("hello world")
