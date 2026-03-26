@@ -4,26 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
-
 </head>
 <body>
+    <button id="red">red</button>
+    <button id="green">green</button>
 
-        <button id="red">red</button>
-        <button id="green">green</button>
+    <script>
+        document.getElementById("red").onclick = handleClick("red");
+        document.getElementById("green").onclick = handleClick("green");
 
-        <script>
-            const red= (Document.getElementById ("red") .onclick = handelClick("red"));
-            const green =(document.getElementById ("green") .onclick =handeClick ("green"));
-
-            function handelClick(color){
-                return function () {
-                    document.body.style.backgroundColor = color;
-                };
+        function handleClick(color) {
+            return function (){
+                document.body.style.backgroundColor = color;
             }
-            handelClick;
+        }
             
-        </script>
-    </div>
+
+    </script>
 </body>
 </html>

@@ -40,4 +40,45 @@
 // let greet = function() {
 //     console.log ("hello world");
 // }
-// let greet = () => console.log ("hello world")
+// let obj = {
+// "name" :akhil,
+// "age" :21,
+// }
+// console.log(obj ["age"])
+
+// console.log("hello")
+// let obj = {
+//     name :"akhil",
+//     age : "21",
+// };
+// console.log(Object.keys(obj))
+// console.log(Object.values(obj))
+// console.log(Object.entries(obj))
+// let obj1 = obj 
+// 
+// let obj1 = { ...obj}
+// obj1.age = "22"
+// console.log(obj)
+// SHALLO COPY
+// let obj = {
+//     name : "akhil",
+//     age : 22,
+//     address: {
+//         CITY : delhi,
+//         state : mp ,
+
+//     }
+// }
+// // let obj1 ={...obj}
+// let obj1 = structuredClone(obj)
+// console.log(obj1)
+
+// 
+// function sum (... args) {
+//     let sum =0;
+//   for (let i = 0; i< args.length; i++) {
+//    sum = sum +args[i];
+//    return sum;
+//   }
+// }
+// console.log(sum(1,2,4,55,5,677,7,8,9))
