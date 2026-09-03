@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Shape Generator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7ff, #eef2ff);
+            color: #1f2937;
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 24px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+            font-size: 2rem;
+        }
+
+        .header p {
+            margin: 0;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 18px;
+            border-radius: 16px;
+            background: white;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+        }
+
+        .controls input,
+        .controls select,
+        .controls button {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            font-size: 0.95rem;
+        }
+
+        .controls input:focus,
+        .controls select:focus,
+        .controls button:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+        }
+
+        .controls button {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .controls button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+        }
+
+        .color-picker {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            background: #f9fafb;
+        }
+
+        .color-picker input {
+            border: none;
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
+            width: 42px;
+            height: 32px;
+        }
+
+        .container {
+            min-height: 420px;
+            padding: 20px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #ffffff, #f3f4f6);
+            box-shadow: inset 0 1px 4px rgba(15, 23, 42, 0.05);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .shape {
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .shape:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .shape.circle {
+            border-radius: 50%;
+        }
+
+        .shape.square {
+            border-radius: 24px;
+        }
+
+        .shape.triangle {
+            background: transparent;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            border: none;
+            box-shadow: none;
+        }
+
+        .message {
+            color: #dc2626;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Modern Shape Generator</h1>
+            <p>Choose how many shapes you want, pick a shape type, and select the color you prefer. The layout is styled
+                with a polished modern look.</p>
+        </div>
+        <div class="controls">
+            <input type="number" min="1" max="50" name="quantity" id="quantity" placeholder="Enter number of shapes" />
+            <input type="number" min="1" max="10" name="colorCount" id="colorCount" placeholder="Number of colors" />
+            <select id="shape">
+                <option value="circle">Circle</option>
+                <option value="square">Square</option>
+                <option value="triangle">Triangle</option>
+            </select>
+            <label class="color-picker" for="shapeColor">
+                <span>Color</span>
+                <input type="color" id="shapeColor" value="#6366f1" />
+            </label>
+            <button id="generate">Generate</button>
+        </div>
+        <div class="container"></div>
+    </div>
+
+    <script>
+        const generateButton = document.querySelector("#generate");
+        const quantityInput = document.querySelector("#quantity");
+        const colorCountInput = document.querySelector("#colorCount");
+        const shapeSelect = document.querySelector("#shape");
+        const colorInput = document.querySelector("#shapeColor");
+        const container = document.querySelector(".container");
+
+        function createGradient(color, count) {
+            const base = color.replace("#", "");
+            const r = parseInt(base.slice(0, 2), 16);
+            const g = parseInt(base.slice(2, 4), 16);
+            const b = parseInt(base.slice(4, 6), 16);
+            const steps = Math.max(1, count);
+            const colors = [];
+
+            for (let i = 0; i < steps; i++) {
+                const ratio = i / Math.max(1, steps - 1);
+                const red = Math.round(r + (255 - r) * ratio * 0.35);
+                const green = Math.round(g + (255 - g) * ratio * 0.35);
+                const blue = Math.round(b + (255 - b) * ratio * 0.35);
+                colors.push(`rgb(${red}, ${green}, ${blue})`);
+            }
+
+            return colors.join(", ");
+        }
+
+        generateButton.addEventListener("click", () => {
+            const quantity = parseInt(quantityInput.value.trim(), 10);
+            const colorCount = parseInt(colorCountInput.value.trim(), 10) || 1;
+            const shapeType = shapeSelect.value;
+            const selectedColor = colorInput.value;
+            container.innerHTML = "";
+
+            if (isNaN(quantity) || quantity < 1) {
+                container.innerHTML = '<p class="message">Please enter a valid number greater than 0.</p>';
+                return;
+            }
+
+            const gradientValue = createGradient(selectedColor, colorCount);
+
+            for (let i = 0; i < quantity; i++) {
+                const shape = document.createElement("div");
+                shape.className = `shape ${shapeType}`;
+                shape.textContent = i + 1;
+                shape.style.background = `linear-gradient(135deg, ${gradientValue})`;
+                shape.style.color = "white";
+                container.appendChild(shape);
+            }
+        });
+    </script>
+</body>
+
+</html>
