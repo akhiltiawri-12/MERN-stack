@@ -1,0 +1,20 @@
+{
+  "name": "mern-stack",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/akhiltiawri-12/Modern-Shape-Generator#readme",
+  "bugs": {
+    "url": "https://github.com/akhiltiawri-12/Modern-Shape-Generator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhiltiawri-12/Modern-Shape-Generator.git"
+  },
+  "license": "ISC",
+  "author": "akhilkumar",
+  
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
