@@ -1,20 +1,25 @@
 import React from 'react'
-import {useMemo} from "react"
-import {useState } from "react"
+import { useState ,useRef} from 'react'
+import "./App.css"
+
 const App = () => {
-  const [count,setcount ]= useState(0);
-  function sum () {
-    console.log ("function called");
-    let sum = 0;
-    for (let i =0; i< 1000000000; i++{
-      sum = sum +i;
-    })
-  }
+  const [count, setCount] = useState(0)
+  const ref= useRef();
+  console.log(ref);
+
+  let a =1;
+  const handleClick = () => {
+    setCount(count + 1);
+    a= a + 1;
+    console.log(a);
+  };
   return (
     <div>
-     <h1></h1> 
+      <p className=' value of count'>{count}</p>
+      <button onClick={handleClick}>Increment</button>
     </div>
   )
 }
 
 export default App
+
