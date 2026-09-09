@@ -4,7 +4,7 @@ import Skelton from './skelton'
 import {useState , useEffect} from 'react'
 
 const App = () => {
-  return (
+
     const [loading, setLoading] = useState(true);
     
   useEffect(() => {
@@ -12,6 +12,7 @@ const App = () => {
       setLoading(false);
     }, 3000);
   }
+  return (
     <div>
      {loading ? <Skelton /> : <Card />}
     </div>
